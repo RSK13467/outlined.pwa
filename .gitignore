@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build & Distribution
+dist/
+build/
+out/
+.next/
+
+# IDE & Editor
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+*.code-workspace
+
+# Environment Variables
+.env
+.env.local
+.env.*.local
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS & Temporary Files
+.DS_Store
+.AppleDouble
+.LSOverride
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# PWA Cache (generated at runtime)
+.cache/
+service-worker-cache/
+
+# Testing
+coverage/
+.nyc_output/
+*.lcov
+
+# Temporary & Backup Files
+*.bak
+*.tmp
+*.temp
+*.backup
+*~
+
+# Tools & Configuration
+.prettierignore
+.eslintignore
+
+# Build artifacts
+*.min.js
+*.min.css
+
+# Local Development
+.local/
+.secrets/
