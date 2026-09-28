@@ -1,4 +1,4 @@
-const CACHE_NAME = 'outlined-converter-v2.0.3';
+const CACHE_NAME = 'outlined-converter-v2.0.4';
 const STATIC_ASSETS = [
   '/outlined.pwa/',
   '/outlined.pwa/index.html',
@@ -32,21 +32,30 @@ self.addEventListener('activate', (event) => {
 });
 
 self.addEventListener('fetch', (event) => {
+  // 1. Only handle GET requests
   if (event.request.method !== 'GET') return;
+
+  // 2. Filter out non-http/https schemes (e.g., chrome-extension://, moz-extension://)
+  const url = new URL(event.request.url);
+  if (url.protocol !== 'http:' && url.protocol !== 'https:') return;
 
   event.respondWith(
     caches.match(event.request).then((cachedResponse) => {
       if (cachedResponse) {
         return cachedResponse;
       }
+
       return fetch(event.request).then((networkResponse) => {
+        // Validate valid HTTP response before caching
         if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== 'basic') {
           return networkResponse;
         }
+
         const responseToCache = networkResponse.clone();
         caches.open(CACHE_NAME).then((cache) => {
           cache.put(event.request, responseToCache);
         });
+
         return networkResponse;
       });
     })
