@@ -92,7 +92,7 @@
     <!-- Controls Sidebar -->
     <section class="card controls">
       <div id="dropzone" class="dropzone">
-        <label class="btn" style="margin-bottom: 8px;">Choose Image</label>
+        <span class="btn" style="margin-bottom: 8px;">Choose Image</span>
         <span class="dropzone-sub">or drag & drop file here</span>
         <input type="file" id="upload" accept="image/*" style="display:none;" />
       </div>
@@ -114,19 +114,20 @@
         <label for="contrast">Image Contrast Boost: <span id="contrastVal">0</span></label>
         <input type="range" id="contrast" min="-50" max="50" value="0">
       </div>
+
+      <button id="downloadBtn" class="btn btn-secondary download-btn" disabled>Download PNG</button>
     </section>
 
-    <!-- Canvas Preview Stage -->
-    <section class="card canvas-wrapper">
-      <canvas id="canvas"></canvas>
-      <div id="placeholder" class="placeholder-text">Upload an image to get started</div>
-      <div id="loadingSpinner" class="spinner-overlay">
-        <div class="spinner"></div>
-        <span>Processing Image...</span>
-      </div>
-    </section>
-    <div class="card controls">
-    <button id="downloadBtn" class="btn btn-secondary" disabled>Download PNG</button>
+    <!-- Canvas Stage Container -->
+    <div class="stage-container">
+      <section class="card canvas-wrapper">
+        <canvas id="canvas"></canvas>
+        <div id="placeholder" class="placeholder-text">Upload an image to get started</div>
+        <div id="loadingSpinner" class="spinner-overlay">
+          <div class="spinner"></div>
+          <span>Processing Image...</span>
+        </div>
+      </section>
     </div>
   </main>
 
@@ -138,6 +139,7 @@
     </div>
   </footer>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
